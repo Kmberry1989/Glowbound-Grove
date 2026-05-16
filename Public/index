@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+    <meta name="theme-color" content="#10172a" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Glowbound" />
+    <title>Glowbound Grove</title>
+    <link rel="rmanifest" href="/manifest.json" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main id="app" class="app-shell">
+      <canvas id="game" aria-label="Glowbound Grove game field"></canvas>
+
+      <section id="login" class="login-panel" aria-labelledby="login-title">
+        <div class="brand-orb"></div>
+        <p class="eyebrow">mobile social multiplayer</p>
+        <h1 id="login-title">Glowbound Grove</h1>
+        <p class="intro">
+          Collect glowseeds, grow the shared grove, level up, and Spark nearby players.
+        </p>
+        <label class="field-label" for="nameInput">Player name</label>
+        <input id="nameInput" maxlength="18" autocomplete="nickname" placeholder="Rochelle" />
+        <button id="joinButton" class="primary-button">Enter the Grove</button>
+        <p class="microcopy">Tip: add this page to your home screen for an app-like feel.</p>
+      </section>
+
+      <section id="hud" class="hud is-hidden" aria-live="polite">
+        <div class="top-card profile-card">
+          <div id="avatarDot" class="avatar-dot"></div>
+          <div>
+            <strong id="playerName">Player</strong>
+            <span id="playerStats">Lv 1 · 0 XP</span>
+          </div>
+        </div>
+
+        <div class="top-card world-card">
+          <strong id="grovePower">Grove 0</strong>
+          <span id="onlineCount">1 online</span>
+        </div>
+
+        <div class="progress-wrap">
+          <div class="progress-labels">
+            <span id="levelLabel">Level 1</span>
+            <span id="nextLabel">Next: 72 XP</span>
+          </div>
+          <div class="progress-track"><div id="xpFill" class="progress-fill"></div></div>
+        </div>
+
+        <div id="notice" class="notice"></div>
+      </section>
+
+      <div id="joystick" class="joystick is-hidden" aria-hidden="true">
+        <div id="stick" class="stick"></div>
+      </div>
+
+      <nav id="actions" class="actions is-hidden" aria-label="Game actions">
+        <button data-emote="wave" class="action-button">👋<span>Wave</span></button>
+        <button data-emote="cheer" class="action-button">✨<span>Cheer</span></button>
+        <button data-emote="dance" class="action-button">🕺<span>Dance</span></button>
+        <button id="sparkButton" class="action-button spark">⚡<span>Spark</span></button>
+      </nav>
+    </main>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/client.js"></script>
+  </body>
+</html>
